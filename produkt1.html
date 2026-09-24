@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Modell 1 – 3D Druck</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { margin:0; font-family:Arial; background:#f0f2f5; }
+  .container {
+    display:flex;
+    flex-wrap:wrap;
+    padding:20px;
+    gap:20px;
+  }
+  .left {
+    flex:1;
+    min-width:280px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  }
+  .right {
+    flex:1;
+    min-width:280px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  }
+  .gallery img {
+    width:100%;
+    border-radius:10px;
+    margin-bottom:10px;
+  }
+  select, input[type="submit"] {
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+  }
+  input[type="submit"] {
+    background:#28a745;
+    color:white;
+    border:none;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="left">
+    <h2>Modell 1</h2>
+    <p><strong>Preis:</strong> 12 CHF</p>
+    <p>Ein hochwertiges 3D‑gedrucktes Modell, perfekt für Deko oder technische Anwendungen.</p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label>Filament:</label>
+      <select name="Filament">
+        <option>PLA</option>
+        <option>PETG</option>
+        <option>TPU</option>
+      </select>
+
+      <label>Farbe:</label>
+      <select name="Farbe">
+        <option>Schwarz</option>
+        <option>Weiss</option>
+        <option>Rot</option>
+        <option>Blau</option>
+        <option>Grün</option>
+      </select>
+
+      <input type="hidden" name="Produkt" value="Modell 1">
+      <input type="submit" value="Bestellen">
+    </form>
+  </div>
+
+  <div class="right">
+    <h3>Bilder</h3>
+    <div class="gallery">
+      <img src="img/modell1_1.jpg">
+      <img src="img/modell1_2.jpg">
+      <img src="img/modell1_3.jpg">
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
