@@ -5,56 +5,76 @@
 <title>Modell 1 – 3D Druck</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  body { margin:0; font-family:Arial; background:#fafafa; }
+  body { margin:0; font-family:Arial; background:#f7f7f7; }
 
   .container {
     display:flex;
     flex-wrap:wrap;
-    gap:30px;
-    padding:30px;
+    gap:40px;
+    padding:40px;
     animation:fadeIn 0.6s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity:0; transform:translateY(10px); }
+    from { opacity:0; transform:translateY(15px); }
     to { opacity:1; transform:translateY(0); }
   }
 
   .left {
     flex:1;
-    min-width:300px;
+    min-width:350px;
   }
 
-  .left img {
+  .main-img {
     width:100%;
-    border-radius:14px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.1);
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .thumbs {
+    display:flex;
+    gap:15px;
+    margin-top:15px;
+  }
+
+  .thumbs img {
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    transition:transform .2s;
+  }
+
+  .thumbs img:hover {
+    transform:scale(1.1);
   }
 
   .right {
     flex:1;
-    min-width:300px;
+    min-width:350px;
     background:white;
-    padding:25px;
-    border-radius:14px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.1);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.12);
   }
 
-  h2 { margin-top:0; font-size:28px; }
-  .price { font-size:32px; font-weight:bold; margin:10px 0; color:#0078ff; }
-  p { color:#444; line-height:1.5; }
+  h2 { margin-top:0; font-size:32px; }
+  .price { font-size:40px; font-weight:bold; margin:15px 0; color:#0078ff; }
+  p { color:#444; line-height:1.6; font-size:18px; }
 
   button {
-    margin-top:20px;
-    padding:12px 20px;
-    font-size:18px;
+    margin-top:25px;
+    padding:14px 22px;
+    font-size:20px;
     background:#28a745;
     color:white;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     cursor:pointer;
     transition:background .2s;
   }
+
   button:hover { background:#1e7e34; }
 </style>
 </head>
@@ -63,7 +83,13 @@
 <div class="container">
 
   <div class="left">
-    <img src="img/modell1_1.jpg">
+    <img id="mainImage" src="img/modell1_1.jpg" class="main-img">
+
+    <div class="thumbs">
+      <img src="img/modell1_1.jpg" onclick="changeImage(this.src)">
+      <img src="img/modell1_2.jpg" onclick="changeImage(this.src)">
+      <img src="img/modell1_3.jpg" onclick="changeImage(this.src)">
+    </div>
   </div>
 
   <div class="right">
@@ -71,8 +97,8 @@
     <div class="price">12 CHF</div>
 
     <p>
-      Ein hochwertiges 3D‑gedrucktes Modell, perfekt für Deko, Technik oder kreative Projekte.
-      Präzise gedruckt mit hoher Detailgenauigkeit.
+      Ein hochwertiges 3D‑gedrucktes Modell mit präzisen Details und sauberer Oberfläche.
+      Ideal für Deko, Technik oder kreative Projekte.
     </p>
 
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -82,6 +108,12 @@
   </div>
 
 </div>
+
+<script>
+function changeImage(src) {
+  document.getElementById("mainImage").src = src;
+}
+</script>
 
 </body>
 </html>
