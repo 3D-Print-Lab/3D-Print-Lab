@@ -133,10 +133,24 @@
 </div>
 
 <script>
+let images = [
+  "img/modell1_1.png",
+  "img/modell1_2.png",
+  "img/modell1_3.png"
+];
+
+let currentIndex = 0;
+
 function changeImage(src) {
   document.getElementById("mainImage").src = src;
+  currentIndex = images.indexOf(src);
 }
-</script>
 
+document.getElementById("mainImage").onclick = function() {
+  currentIndex++;
+  if (currentIndex >= images.length) currentIndex = 0;
+  document.getElementById("mainImage").src = images[currentIndex];
+};
+</script>
 </body>
 </html>
