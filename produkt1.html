@@ -20,6 +20,7 @@
     to { opacity:1; transform:translateY(0); }
   }
 
+  /* LEFT SIDE */
   .left {
     flex:1;
     min-width:350px;
@@ -43,13 +44,15 @@
     object-fit:cover;
     border-radius:12px;
     cursor:pointer;
-    transition:transform .2s;
+    transition:transform .2s, box-shadow .2s;
   }
 
   .thumbs img:hover {
     transform:scale(1.1);
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
   }
 
+  /* RIGHT SIDE */
   .right {
     flex:1;
     min-width:350px;
@@ -62,6 +65,15 @@
   h2 { margin-top:0; font-size:32px; }
   .price { font-size:40px; font-weight:bold; margin:15px 0; color:#0078ff; }
   p { color:#444; line-height:1.6; font-size:18px; }
+
+  select {
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border-radius:12px;
+    border:1px solid #ccc;
+    font-size:18px;
+  }
 
   button {
     margin-top:25px;
@@ -82,6 +94,7 @@
 
 <div class="container">
 
+  <!-- LEFT: IMAGE + GALLERY -->
   <div class="left">
     <img id="mainImage" src="img/modell1_1.png" class="main-img">
 
@@ -92,6 +105,7 @@
     </div>
   </div>
 
+  <!-- RIGHT: DESCRIPTION -->
   <div class="right">
     <h2>Modell 1</h2>
     <div class="price">12 CHF</div>
@@ -102,6 +116,15 @@
     </p>
 
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label>Farbe auswählen:</label>
+      <select name="Farbe">
+        <option>Schwarz</option>
+        <option>Weiss</option>
+        <option>Rot</option>
+        <option>Blau</option>
+        <option>Grün</option>
+      </select>
+
       <input type="hidden" name="Produkt" value="Modell 1">
       <button type="submit">Bestellen</button>
     </form>
