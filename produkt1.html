@@ -30,6 +30,7 @@
     width:100%;
     border-radius:18px;
     box-shadow:0 6px 20px rgba(0,0,0,0.12);
+    cursor:pointer;
   }
 
   .thumbs {
@@ -44,12 +45,17 @@
     object-fit:cover;
     border-radius:12px;
     cursor:pointer;
-    transition:transform .2s, box-shadow .2s;
+    transition:transform .2s, box-shadow .2s, border .2s;
+    border:3px solid transparent;
   }
 
   .thumbs img:hover {
     transform:scale(1.1);
     box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .thumb-active {
+    border:3px solid #0078ff;
   }
 
   /* RIGHT SIDE */
@@ -88,6 +94,20 @@
   }
 
   button:hover { background:#1e7e34; }
+
+  .back-btn {
+    margin-bottom:20px;
+    padding:10px 18px;
+    background:#ccc;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+  }
+
+  .back-btn:hover {
+    background:#bbb;
+  }
 </style>
 </head>
 <body>
@@ -96,12 +116,15 @@
 
   <!-- LEFT: IMAGE + GALLERY -->
   <div class="left">
+
+    <button class="back-btn" onclick="location.href='index.html'">← Zurück</button>
+
     <img id="mainImage" src="img/modell1_1.png" class="main-img">
 
     <div class="thumbs">
-      <img src="img/modell1_1.png" onclick="changeImage(this.src)">
-      <img src="img/modell1_2.png" onclick="changeImage(this.src)">
-      <img src="img/modell1_3.png" onclick="changeImage(this.src)">
+      <img src="img/modell1_1.png" class="thumb-active" onclick="changeImage(0)">
+      <img src="img/modell1_2.png" onclick="changeImage(1)">
+      <img src="img/modell1_3.png" onclick="changeImage(2)">
     </div>
   </div>
 
@@ -141,16 +164,23 @@ let images = [
 
 let currentIndex = 0;
 
-function changeImage(src) {
-  document.getElementById("mainImage").src = src;
-  currentIndex = images.indexOf(src);
+function changeImage(index) {
+  currentIndex = index;
+  document.getElementById("mainImage").src = images[index];
+
+  // Rahmen aktualisieren
+  let thumbs = document.querySelectorAll(".thumbs img");
+  thumbs.forEach(t => t.classList.remove("thumb-active"));
+  thumbs[index].classList.add("thumb-active");
 }
 
+// Hauptbild klickbar → nächstes Bild
 document.getElementById("mainImage").onclick = function() {
   currentIndex++;
   if (currentIndex >= images.length) currentIndex = 0;
-  document.getElementById("mainImage").src = images[currentIndex];
+  changeImage(currentIndex);
 };
 </script>
+
 </body>
 </html>
