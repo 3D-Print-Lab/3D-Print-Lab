@@ -114,6 +114,55 @@
 </style>
 </head>
 <body>
+<!-- POPUP OVERLAY -->
+<div id="popup" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+">
+  <div style="
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    width:320px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  ">
+    <h3>Bestellung abschließen</h3>
+
+    <label>Vorname:</label>
+    <input id="vorname" type="text" style="width:100%; padding:10px; margin-bottom:10px;">
+
+    <label>Nachname:</label>
+    <input id="nachname" type="text" style="width:100%; padding:10px; margin-bottom:10px;">
+
+    <label>Kontakt (E-Mail oder Telefonnummer):</label>
+    <input id="kontakt" type="text" style="width:100%; padding:10px; margin-bottom:15px;">
+
+    <button onclick="sendOrder()" style="
+      width:100%;
+      padding:12px;
+      background:#28a745;
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+    ">Absenden</button>
+
+    <button onclick="closePopup()" style="
+      width:100%;
+      padding:12px;
+      background:#ccc;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+      margin-top:10px;
+    ">Abbrechen</button>
+  </div>
+</div>
 
 <div class="container">
 
